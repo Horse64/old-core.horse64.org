@@ -2430,7 +2430,7 @@ h64filehandle filesys32_OpenFromPathAsOSHandleEx(
             }
         }
     }
-    if (!fhandle) {
+    if (fhandle == INVALID_HANDLE_VALUE) {
         fhandle = CreateFileW(
             (LPCWSTR)pathw,
             0 | (mode_read ? GENERIC_READ : 0)
