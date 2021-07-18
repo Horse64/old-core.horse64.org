@@ -322,7 +322,7 @@ int filesys32_IsObviouslyInvalidPath(
             return 1;
         #if defined(_WIN32) || defined(_WIN64)
         if (p[i] == '*' || p[i] == '%' ||
-                (p[i] == ':' && i != 2) ||
+                (p[i] == ':' && i != 1) ||
                 p[i] == '"' || p[i] == '?' ||
                 p[i] == '|' || p[i] == '>' ||
                 p[i] == '<')
