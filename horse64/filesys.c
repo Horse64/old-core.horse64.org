@@ -420,17 +420,17 @@ const char *filesys_AppDataSubFolder(const char *appname) {
     if (dirp) {
         _appdatapath = malloc(
             strlen(dirp) +
-            strlen(LINUX_APPDATA_SUFFIX) + 1 +
+            strlen(MACAPPDATA_SUFFIX) +
             strlen(appname) + 1
         );
         if (_appdatapath) {
             memcpy(_appdatapath, dirp, strlen(dirp));
             memcpy(_appdatapath + strlen(dirp),
                    MACAPPDATA_SUFFIX,
-                   strlen(MACAPPDATA_SUFFIX) + 1);
+                   strlen(MACAPPDATA_SUFFIX));
             memcpy(
                 _appdatapath + strlen(dirp) +
-                strlen(MACAPPDATA_SUFFIX) + 1,
+                strlen(MACAPPDATA_SUFFIX),
                 appname, strlen(appname) + 1
             );
         }
@@ -442,17 +442,17 @@ const char *filesys_AppDataSubFolder(const char *appname) {
     if (dirp) {
         _appdatapath = malloc(
             strlen(dirp) +
-            strlen(LINUX_APPDATA_SUFFIX) + 1 +
+            strlen(LINUX_APPDATA_SUFFIX) +
             strlen(appname) + 1
         );
         if (_appdatapath) {
             memcpy(_appdatapath, dirp, strlen(dirp));
             memcpy(_appdatapath + strlen(dirp),
                    LINUX_APPDATA_SUFFIX,
-                   strlen(LINUX_APPDATA_SUFFIX) + 1);
+                   strlen(LINUX_APPDATA_SUFFIX));
             memcpy(
                 _appdatapath + strlen(dirp) +
-                strlen(LINUX_APPDATA_SUFFIX) + 1,
+                strlen(LINUX_APPDATA_SUFFIX),
                 appname, strlen(appname) + 1
             );
         }
@@ -465,17 +465,17 @@ const char *filesys_AppDataSubFolder(const char *appname) {
         path[MAX_PATH] = '\0';
         _appdatapath = malloc(
             strlen(path) +
-            strlen(WINAPPDATA_SUFFIX) + 1 +
+            strlen(WINAPPDATA_SUFFIX) +
             strlen(appname) + 1
         );
         if (_appdatapath) {
             memcpy(_appdatapath, path, strlen(path));
             memcpy(_appdatapath + strlen(path),
                    WINAPPDATA_SUFFIX,
-                   strlen(WINAPPDATA_SUFFIX) + 1);
+                   strlen(WINAPPDATA_SUFFIX));
             memcpy(
                 _appdatapath + strlen(path) +
-                strlen(WINAPPDATA_SUFFIX) + 1,
+                strlen(WINAPPDATA_SUFFIX),
                 appname, strlen(appname) + 1
             );
         }
