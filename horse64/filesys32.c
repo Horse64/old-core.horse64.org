@@ -2438,8 +2438,7 @@ h64filehandle filesys32_OpenFromPathAsOSHandleEx(
             (mode_write ? 0 : FILE_SHARE_READ),
             NULL,
             ((mode_write && !mode_append) ?
-                TRUNCATE_EXISTING : OPEN_EXISTING) |
-            ((mode_write && !mode_append) ? CREATE_NEW : 0),
+                CREATE_ALWAYS : OPEN_EXISTING),
             ((flags & (OPEN_ONLY_IF_NOT_LINK | _WIN32_OPEN_LINK_ITSELF)) ?
             FILE_FLAG_OPEN_REPARSE_POINT : 0),
             NULL
