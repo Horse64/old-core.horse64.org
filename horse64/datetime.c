@@ -45,6 +45,8 @@ uint64_t datetime_TicksNoSuspendJump() {
     if (ticks > _nosuspendlastticks + 500L) {
         _nosuspendoffset -= (ticks - _nosuspendlastticks - 10L);
         ticks = _nosuspendlastticks + 10L;
+    } else {
+        _nosuspendlastticks = ticks;
     }
     mutex_Release(_nosuspendticksmutex);
     return ticks;
