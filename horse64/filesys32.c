@@ -2647,13 +2647,15 @@ int filesys32_IsDirectory(
         pathu32len = 1;
     }
 
-    #if defined(ANDROID) || defined(__ANDROID__) || defined(__unix__) || defined(__linux__) || defined(__APPLE__) || defined(__OSX__)
+    #if defined(ANDROID) || defined(__ANDROID__) || \
+        defined(__unix__) || defined(__linux__) || \
+        defined(__APPLE__) || defined(__OSX__)
     struct stat64 sb;
     char *p = AS_U8(pathu32, pathu32len);
     if (!p)
         return 0;
     int statcheck = stat64(p, &sb);
-    if (statcheck != 0) {
+    if (statcheck < 0) {
         free(p);
         if (errno == ENOENT) {
             *result = 0;
