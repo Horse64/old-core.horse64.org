@@ -23,7 +23,7 @@
 #define H64_NOFILE (INVALID_HANDLE_VALUE)
 #else
 typedef int h64filehandle;
-#define H64_NOFILE ((int)0)
+#define H64_NOFILE ((int)-1)
 #endif
 
 h64wchar *filesys32_GetOwnExecutable(int64_t *out_len, int *oom);
